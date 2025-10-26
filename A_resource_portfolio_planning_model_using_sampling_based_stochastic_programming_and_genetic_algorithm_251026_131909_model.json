@@ -1,0 +1,2890 @@
+[
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.065,
+                0.058,
+                0.17,
+                0.145
+            ],
+            "angle": 0,
+            "content": "SELFIER"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.307,
+                0.058,
+                0.629,
+                0.073
+            ],
+            "angle": 0,
+            "content": "Available online at www.sciencedirect.com"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.336,
+                0.074,
+                0.6,
+                0.109
+            ],
+            "angle": 0,
+            "content": "ScienceDirect"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.264,
+                0.128,
+                0.671,
+                0.143
+            ],
+            "angle": 0,
+            "content": "European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.793,
+                0.073,
+                0.926,
+                0.13
+            ],
+            "angle": 0,
+            "content": "EUROPEAN JOURNAL OPERATIONAL RESEARCH"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.741,
+                0.144,
+                0.927,
+                0.158
+            ],
+            "angle": 0,
+            "content": "www.elsevier.com/locate/ejor"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.405,
+                0.166,
+                0.585,
+                0.187
+            ],
+            "angle": 0,
+            "content": "O.R. Applications"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.071,
+                0.198,
+                0.921,
+                0.253
+            ],
+            "angle": 0,
+            "content": "A resource portfolio planning model using sampling-based stochastic programming and genetic algorithm"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.252,
+                0.265,
+                0.738,
+                0.291
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang a,1, S.-M. Wang b,\\*, J.-C. Chen b,2"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.173,
+                0.299,
+                0.815,
+                0.327
+            ],
+            "angle": 0,
+            "content": "\\(^{a}\\) Department of Industrial Management, National Taiwan University of Science and Technology, #43, Sec. 4, Keelung Road, Taipei 106, Taiwan, ROC"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.09,
+                0.327,
+                0.899,
+                0.342
+            ],
+            "angle": 0,
+            "content": "\\(^{b}\\) Department of Industrial Engineering, Chung-Yuan Christian University, #200, Chung Pei Road, Chung Li, 320, Taiwan, ROC"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.331,
+                0.348,
+                0.66,
+                0.362
+            ],
+            "angle": 0,
+            "content": "Received 5 October 2005; accepted 4 October 2006"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.382,
+                0.363,
+                0.61,
+                0.375
+            ],
+            "angle": 0,
+            "content": "Available online 20 December 2006"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.064,
+                0.417,
+                0.13,
+                0.43
+            ],
+            "angle": 0,
+            "content": "Abstract"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.061,
+                0.445,
+                0.927,
+                0.564
+            ],
+            "angle": 0,
+            "content": "Resource portfolio planning optimization is crucial to high-tech manufacturing industries. One of the most important characteristics of such a problem is intensive investment and risk in demands. In this study, a nonlinear stochastic optimization model is developed to maximize the expected profit under demand uncertainty. For solution efficiency, a stochastic programming-based genetic algorithm (SPGA) is proposed to determine a profitable capacity planning and task allocation plan. The algorithm improves a conventional two-stage stochastic programming by integrating a genetic algorithm into a stochastic sampling procedure to solve this large-scale nonlinear stochastic optimization on a real-time basis. Finally, the tradeoff between profits and risks is evaluated under different settings of algorithmic and hedging parameters. Experimental results have shown that the proposed algorithm can solve the problem efficiently."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.064,
+                0.565,
+                0.358,
+                0.579
+            ],
+            "angle": 0,
+            "content": "© 2006 Elsevier B.V. All rights reserved."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.593,
+                0.644,
+                0.608
+            ],
+            "angle": 0,
+            "content": "Keywords: Capacity planning and allocation; Stochastic programming; Genetic algorithms"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.064,
+                0.656,
+                0.185,
+                0.672
+            ],
+            "angle": 0,
+            "content": "1. Introduction"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.688,
+                0.477,
+                0.77
+            ],
+            "angle": 0,
+            "content": "Stochastic resource planning and capacity allocation deals with the problem of how to find an optimal resource portfolio under uncertain demands. Such a portfolio planning has been explored in high-tech manufacturing industries due to intensive"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.511,
+                0.656,
+                0.927,
+                0.882
+            ],
+            "angle": 0,
+            "content": "capital and technology involvement as well as risky market demands and short product/equipment life cycle (Neslihan, 2002). The industries not only face a variety of orders containing make-to-order and make-to-stock, but also seek to maximize profit while minimizing risk. Some other significant factors in the industries, such as constrained resource capability, simultaneous resources settings, optional alternatives of resource acquisition, and different operational strategies must be incorporated but dealt with separately for simplification. In terms of stochastic demands, most of the related studies only deal with it using the scenario optimization technique; but it cannot precisely reflect the situations"
+        },
+        {
+            "type": "page_footnote",
+            "bbox": [
+                0.062,
+                0.799,
+                0.478,
+                0.853
+            ],
+            "angle": 0,
+            "content": "* Corresponding author. Tel.: +886 3 265 4461.  \nE-mail addresses: kjwang@mail.ntust.edu.tw (K.-J. Wang), g9074014@cycu.edu.tw (S.-M. Wang), jamesc@cycu.edu.tw (J.-C. Chen)."
+        },
+        {
+            "type": "page_footnote",
+            "bbox": [
+                0.073,
+                0.853,
+                0.4,
+                0.867
+            ],
+            "angle": 0,
+            "content": "1 Tel.: +886 2 2 737 6769; fax: +886 2 2 737 6344."
+        },
+        {
+            "type": "page_footnote",
+            "bbox": [
+                0.073,
+                0.867,
+                0.233,
+                0.88
+            ],
+            "angle": 0,
+            "content": "2 Tel.: +886 3 265 4415."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.062,
+                0.799,
+                0.478,
+                0.88
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.062,
+                0.896,
+                0.524,
+                0.925
+            ],
+            "angle": 0,
+            "content": "0377-2217/$ - see front matter © 2006 Elsevier B.V. All rights reserved.  \ndoi:10.1016/j.ejor.2006.10.037"
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.074,
+                0.059,
+                0.098,
+                0.069
+            ],
+            "angle": 0,
+            "content": "328"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.244,
+                0.059,
+                0.763,
+                0.07
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.089,
+                0.481,
+                0.118
+            ],
+            "angle": 0,
+            "content": "of continuous distribution in real demands and many possible scenarios."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.12,
+                0.482,
+                0.343
+            ],
+            "angle": 0,
+            "content": "In high-tech industries, it is difficult for a company to set up an appropriate long-term capacity level under uncertainty. Such a uncertainty may arise as a consequence of a breakthrough technology, opening of new markets or innovative products, or dramatic economic changes with bullwhip effect. The most important characteristic within this resource optimization problem is the risk of investments on expensive resources. As a result, production deciders have to keep in view and struggle constantly against the uncertainty in demand size and strategies of competitors in lumpy environment, along with high capital expenditure or lack of capacity for demand variants."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.346,
+                0.481,
+                0.424
+            ],
+            "angle": 0,
+            "content": "The purpose of this paper is to develop both a precise mathematical representation and the corresponding solving algorithm to maximize the expected profit under demand uncertainty. The following decisions are examined in this study."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.093,
+                0.442,
+                0.481,
+                0.505
+            ],
+            "angle": 0,
+            "content": "(i) The optimal resource portfolio plan (including the type and amount of resources that must be procured, rented, transferred and/or sold-out) accounting for the time value of capital."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.089,
+                0.506,
+                0.481,
+                0.538
+            ],
+            "angle": 0,
+            "content": "(ii) The choice of the most profitable orders from pending orders."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.085,
+                0.539,
+                0.481,
+                0.584
+            ],
+            "angle": 0,
+            "content": "(iii) The optimal allocation of tasks that specifies the optimal quantity of products produced in each time bucket."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.085,
+                0.442,
+                0.481,
+                0.584
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.603,
+                0.482,
+                0.81
+            ],
+            "angle": 0,
+            "content": "The rest of this article is organized as follows. Section 2 reviews related research into capacity planning and allocation, and uncertainty modeling and solution methodology. Section 3 presents a nonlinear mixed integer mathematical model for the resource portfolio planning problem. In section 4, a stochastic programming based genetic algorithm (SPGA) is proposed to solve the problem. Section 5 compares the proposed algorithm with a random-search algorithm as a benchmark, and presents the results of sensitivity analysis under different model parameters settings. Finally, Section 6 draws conclusions."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.075,
+                0.829,
+                0.206,
+                0.843
+            ],
+            "angle": 0,
+            "content": "2. Related works"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.862,
+                0.481,
+                0.924
+            ],
+            "angle": 0,
+            "content": "Solving approaches of resource planning and capacity allocation can be roughly divided into two categories: mathematical programming and soft-computing methods. Linear programming"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.524,
+                0.088,
+                0.932,
+                0.295
+            ],
+            "angle": 0,
+            "content": "(LP) and mixed integer linear programming (MILP), as typical forms of the exact methods are usually used to model material planning and capacity allocation problems, respectively (e.g., Rajagopalan, 1994; Hung and Leachman, 1996; Bashyam, 1996; Hung and Wang, 1997 to name a few). The mathematical-based modeling and exact solution methods are accurate but usually suffer from time-consuming due to the complexity of problems. Although the resource portfolio planning and task allocation planning are strongly related, most of the literatures using the exact methods have solved these problems separately for simplification."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.524,
+                0.297,
+                0.932,
+                0.875
+            ],
+            "angle": 0,
+            "content": "To design a proper solution method for the addressed problem, one must consider the tradeoff between solution efficiency and quality. Soft computing methods have rapidly emerged to attack the capacity allocation and expansion problem (For instance, Bard et al., 1999; Swaminathan, 2000 and Merkle et al., 2002). Among the methods, genetic algorithm (GA) is the most popular one had been employed in solving resource planning problem, as compared with simulated annealing and tabu search. Holland (1975) first proposed a simple GA. Certain concerns exist regarding when a GA methodology should be used, including the representation of a chromosome structure, initial population, population size, selection probabilities, genetic operators, and termination conditions. A fitness function is then used to screen for good chromosomes. The survey of a GA can be found in numerous studies (e.g., David, 1953; Mitsuo and Runwei, 2000). Li et al. (1998) presented a GA approach to solve a problem with multiple-periods and multiple-levels capacity balancing issues. Tiwari and Vidyarth (2000) employed a GA to allocate capacity for orders and increased resource utilization and throughput. Ip et al. (2000) developed a model to address the planning and scheduling problem in a multiple-products manufacturing environment by applying GA. Wang and Lin (2002) addressed a capacity expansion and allocation problem for a high-tech manufacturing with a constrained budget using GA. Wang and Hou (2003) also solved the problem of capacity expansion and allocation in the semiconductor testing industry using GA. Pongcharoen et al. (2004) proposed a GA based scheduling tool that token into account multiple-resources constraints and multiple-levels of product structure."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.525,
+                0.877,
+                0.932,
+                0.924
+            ],
+            "angle": 0,
+            "content": "The above literatures are only valid for a deterministic-demand assumption which is impractical to some extent in industry facing a stochastic"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.235,
+                0.058,
+                0.756,
+                0.071
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.058,
+                0.926,
+                0.07
+            ],
+            "angle": 0,
+            "content": "329"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.088,
+                0.473,
+                0.44
+            ],
+            "angle": 0,
+            "content": "demand. Conventionally, a stochastic optimization problem is modeled and implemented by either a sampling-based or a scenario-based approach for stochastic demands. Recent studies regarding scenario-based optimization for resource portfolio are described as follows. Alonso et al. (2000) presented a model for the air traffic management problem under uncertainty in airport arrival and departure as well as airspace capacity. Chen et al. (2002) considered a Lagrangian model of technology and capacity planning characterized by multiple products, stochastic demands and technology alternatives problem. Barut and Sridharan (2004) developed a heuristic for short-term constrained capacity allocation to multiple products in maketo-order manufacturing with three different scenarios of order rate of products. Higgins and David (2005) applied a simulation model for capacity planning. For a given scenario for cost reductions in harvesting and transport, the model measures the impacts of locomotive shifts, bin requirements, and the time that harvesters spend waiting for bin."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.442,
+                0.473,
+                0.794
+            ],
+            "angle": 0,
+            "content": "However, when potential scenarios are numerous or of continuous distributions, a scenarios-based stochastic programming has lower precision than a sampling-based one. Furthermore, the sampling-based approach can conduct planning dynamically on the basis of updated information. The two-stage stochastic program mentioned originally by Higle and Sen (1996) has been proven to represent effectively a stochastic model with randomness in sampling. The decomposition procedure applied in the two-stage program approximates the expected risk generated by cutting planes where each cutting plane is obtained by a demand realization (Chang et al., 2002). Several scholars have applied the two-stage program to capacity planning. Lee (2002) developed an artificial intelligence-based sampling system in semiconductor manufacturing industry for reduction and improvement in operational efficiency. Gritsevskyi and Nakićenović (2000) presented a new method for modeling-induced technological learning and uncertainty in energy system."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.796,
+                0.473,
+                0.924
+            ],
+            "angle": 0,
+            "content": "Regarding the two-stage sampling-based stochastic program, conceptually, the optimal resource portfolio solution under first \\(\\varsigma\\) demands (sample sets) will review whether \\(\\varsigma + 1\\)th cutting plan is necessary through sampling for the next estimate. It can be shown that as \\(\\varsigma \\to \\infty\\), the portfolio will converge to the optimal solution. The original decomposition procedure of the two-stage sampling-based stochas"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.515,
+                0.087,
+                0.923,
+                0.231
+            ],
+            "angle": 0,
+            "content": "tic program is shown in Fig. 1. With respect to tradeoff between the risk and profit, several scholars have proposed mean absolute deviation methods to represent the possible risk on the different application domains (e.g., as Xia et al., 2000; Xia et al., 2001; Chang et al., 2000; Ehrgott et al., 2004). It is worthy to note that much computational effort is needed for the two-stage sampling-based stochastic program."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.515,
+                0.233,
+                0.923,
+                0.488
+            ],
+            "angle": 0,
+            "content": "In summary, resource portfolio planning and task allocation are strongly related, but academic studies have solved these problems separately for simplification. Some significant factors that affect the decision-making on resource planning and allocation in high-tech industries, such as operational strategies, make-to-stock versus make-to-order policy, time value of capital, salvaging and depreciation of resources, and demand dynamics, have been neglected. Decisions regarding resource acquisition and phase-out alternatives have also been simplified. Moreover, evaluation criteria considering stochastic demands and hedging from demand variation are needed. Thus, a more generalized mathematical model is required to describe precisely the problem facing the industries in view of the"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.615,
+                0.517,
+                0.825,
+                0.886
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.515,
+                0.897,
+                0.923,
+                0.924
+            ],
+            "angle": 0,
+            "content": "Fig. 1. Basic steps of two-stage sampling based stochastic program."
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.073,
+                0.058,
+                0.099,
+                0.069
+            ],
+            "angle": 0,
+            "content": "330"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.242,
+                0.057,
+                0.765,
+                0.071
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.087,
+                0.482,
+                0.201
+            ],
+            "angle": 0,
+            "content": "above factors. Furthermore, although soft-computing-based methods can attack with the resource allocation and expansion problem more efficiently, much computational effort has been wasted due to poor algorithm design. Opportunities still exist for improving the performances of algorithms and accelerating their computational speed."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.071,
+                0.216,
+                0.258,
+                0.231
+            ],
+            "angle": 0,
+            "content": "3. Problem formulation"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.073,
+                0.248,
+                0.484,
+                0.521
+            ],
+            "angle": 0,
+            "content": "Resource portfolio planning herein considers the variance of different demands and expected return in long-term planning horizon. A decision-maker must adjust the level of resources through alternatives such as renting and transferring by outsourcing. In the high-tech industry, products are often measured by the corresponding resource capacity required to calibrate (Wang and Hou, 2003). Both make-to-stock and make-to-order types of production are considered in the model. The former needs to be completely fulfilled in the span of production horizon, while the latter are done selectively. Furthermore, owing to its potential profitability, capital can be easily gathered from the monetary market. Residual capital/assets in earlier periods, which is regarded as liquidity, can be used in subsequent planning periods."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.522,
+                0.484,
+                0.553
+            ],
+            "angle": 0,
+            "content": "Several assumptions are presented and justified as follows."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.078,
+                0.57,
+                0.483,
+                0.729
+            ],
+            "angle": 0,
+            "content": "- Demands are presented as a set in which each demand consists of several types of products. This occurs in many industries; for instance, an order in semiconductor manufacturing and testing industry may consist of several \"devices\"; an order in TFT-LCD manufacturing industry may comprise different sizes of slides. Moreover, the each demand was presented in a discrete-time base. Usually, orders are placed in each week or month."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.078,
+                0.731,
+                0.484,
+                0.925
+            ],
+            "angle": 0,
+            "content": "- Resource procurement occurs only in the initial period, whereas resource capacity can be adjusted in the intermediate periods through renting or transferring from other plants. Depreciation of resources is reflected in salvage price that can be estimated. This assumption conforms to the situation in many high-tech industries in which the duration of an investment cycle ranges from 4 to 8 quarters. The equipment procurement order is released (or planned) in the beginning of the cycle, and capacity can be adjusted through other alternatives such as renting and transferring from"
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.078,
+                0.57,
+                0.484,
+                0.925
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.541,
+                0.087,
+                0.935,
+                0.151
+            ],
+            "angle": 0,
+            "content": "other plants. Besides, the assumption states that the salvage price of resources can be estimated beforehand. A firm's accounting system can easily achieve such estimation."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.528,
+                0.152,
+                0.934,
+                0.215
+            ],
+            "angle": 0,
+            "content": "- The target utilization and throughput rate of resource for individual products are known. These data are recorded regularly in and can be easily obtained by the historical database."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.528,
+                0.216,
+                0.934,
+                0.329
+            ],
+            "angle": 0,
+            "content": "- There are finite resource configurations to confine the technological feasibility for producing a product. In practice, a resource can only process certain products. Furthermore, an auxiliary resource can only work with a specified main resource and a product can thus only be performed by certain feasible resource configurations."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.528,
+                0.152,
+                0.934,
+                0.329
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.344,
+                0.934,
+                0.378
+            ],
+            "angle": 0,
+            "content": "All the notations of the model are listed in the following:"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.528,
+                0.393,
+                0.593,
+                0.408
+            ],
+            "angle": 0,
+            "content": "- Index"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.522,
+                0.425,
+                0.934,
+                0.75
+            ],
+            "angle": 0,
+            "content": "MTO Index of demand pattern (make-to-order)  \nMTS Index of demand pattern (make-to-stock)  \n\\(\\varsigma\\) Index of demand scenario \\((\\varsigma = 1, \\ldots)\\)  \n\\(\\lambda\\) Adjustable factor applied to tradeoff between profit and risk \\((0 \\leqslant \\lambda \\leqslant 1)\\). When \\(\\lambda = 0\\), the decision maker prefers the highest profits without considering the risk of investment. Conversely, when \\(\\lambda = 1\\), the investor is very conscious of the risk of investment  \n\\(a\\) Index of auxiliary resource type \\((a = 1, \\ldots, A)\\)  \n\\(h\\) Index of auxiliary resource category (such as operators and programs)  \n\\(p\\) Index of production planning period \\((p = 1, \\ldots, P)\\)  \n\\(m\\) Index of main resource type \\((m = 1, \\ldots, M)\\)  \n\\(t\\) Index of product type \\((t = 1, \\ldots, T)\\)  \n\\(z\\) Index of resource outsourcing alternatives \\((z = 1, \\ldots, Z)\\) (e.g., by rent, by transfer, etc.)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.528,
+                0.763,
+                0.637,
+                0.777
+            ],
+            "angle": 0,
+            "content": "- Parameters"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.522,
+                0.794,
+                0.934,
+                0.843
+            ],
+            "angle": 0,
+            "content": "\\(b_{p,t}\\) Unit profits of a product \\(t\\) produced in period \\(\\pmb{p}\\), \\(t\\in T_m\\). \\(T_{m}\\) is the set of products produced in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.522,
+                0.843,
+                0.934,
+                0.922
+            ],
+            "angle": 0,
+            "content": "\\(c_{m,t}\\) Product-resource capabilities for product \\(t\\) associated with main resource type \\(\\pmb{m}\\). This is a 0-1 parameter. \\(c_{m,t} = 1\\) if main resource type \\(\\pmb{m}\\) can conduct product \\(t\\); \\(c_{m,t} = 0\\) otherwise"
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.522,
+                0.794,
+                0.934,
+                0.922
+            ],
+            "angle": 0,
+            "content": null
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.233,
+                0.057,
+                0.758,
+                0.072
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.058,
+                0.925,
+                0.07
+            ],
+            "angle": 0,
+            "content": "331"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.083,
+                0.479,
+                0.295
+            ],
+            "angle": 0,
+            "content": "\\(c_{m,a,t}^{h}\\) Resource configuration capabilities for product \\(\\pmb{t}\\) regarded with main resource type \\(\\pmb{m}\\) and auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category). This is a 0-1 parameter. \\(t\\in T_m^h\\) \\(T_{m}^{h}\\) is a set of products that can be produced by auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) associated with main resource type \\(\\pmb{m}\\) \\(a\\in A_m^h\\) \\(A_{m}^{h}\\) is a set of auxiliary resource categories \\(\\pmb{h}\\) associated with the main resource type \\(\\pmb{m}\\) \\(c_{m,a,t}^{h} = 1\\) if auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) can conduct product \\(\\pmb{t}\\), \\(c_{m,a,t}^{h} = 0\\) otherwise"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.064,
+                0.297,
+                0.476,
+                0.345
+            ],
+            "angle": 0,
+            "content": "\\(d_{m}\\) Unit salvage value of phasing out a main resource type \\(m\\). \\(d_{m}\\) can be a positive or negative value"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.346,
+                0.475,
+                0.393
+            ],
+            "angle": 0,
+            "content": "\\(d_{a}^{h}\\) Unit salvage value of phasing out an auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) \\(d_{a}^{h}\\) can be a positive or negative value"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.395,
+                0.475,
+                0.425
+            ],
+            "angle": 0,
+            "content": "\\(e_{m}\\) Unit cost of purchasing a main resource type \\(m\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.426,
+                0.475,
+                0.457
+            ],
+            "angle": 0,
+            "content": "\\(e_{a}^{h}\\) Unit cost of purchasing an auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.459,
+                0.387,
+                0.475
+            ],
+            "angle": 0,
+            "content": "\\(I_{p}\\) Capital interest rate in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.475,
+                0.475,
+                0.506
+            ],
+            "angle": 0,
+            "content": "The unit excess production cost of product \\( t \\) in period \\( p \\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.507,
+                0.475,
+                0.538
+            ],
+            "angle": 0,
+            "content": "\\(K_{0,a}^{h}\\) Number of auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) in the initial period"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.539,
+                0.475,
+                0.57
+            ],
+            "angle": 0,
+            "content": "\\(K_{0,m}\\) Number of main resource type \\(m\\) in the initial period"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.571,
+                0.475,
+                0.602
+            ],
+            "angle": 0,
+            "content": "\\(l_{p,t}\\) The unit lack production cost of product \\(t\\) in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.603,
+                0.475,
+                0.635
+            ],
+            "angle": 0,
+            "content": "\\(o_{p,t}^{\\zeta}\\) Market demands for product \\(t\\) in period \\(\\pmb{p}\\) in scenario \\(\\zeta\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.636,
+                0.475,
+                0.667
+            ],
+            "angle": 0,
+            "content": "\\(r_{m,t}\\) Theoretical throughput of product \\(t\\) conducted by main resource type \\(\\pmb{m}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.667,
+                0.475,
+                0.731
+            ],
+            "angle": 0,
+            "content": "\\(r_{m,a,t}^{h}\\) Theoretical throughput of product \\(t\\) conducted by auxiliary resource type \\(\\pmb{a}\\) (of the \\(\\pmb{h}\\) category), associated with main resource type \\(\\pmb{m}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.733,
+                0.475,
+                0.78
+            ],
+            "angle": 0,
+            "content": "\\(u_{p,m,z}\\) Unit cost of main resource type \\(m\\) obtained by outsourcing alternative \\(z\\) in period \\(p\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.78,
+                0.475,
+                0.828
+            ],
+            "angle": 0,
+            "content": "\\(u_{p,a,z}^{h}\\) Unit cost of auxiliary resource type \\(a\\) (of the \\(h\\) category) obtained by outsourcing alternative \\(z\\) in period \\(p\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.829,
+                0.475,
+                0.86
+            ],
+            "angle": 0,
+            "content": "\\(w_{p,m}\\) Working hours of main resource type \\(m\\) in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.861,
+                0.475,
+                0.893
+            ],
+            "angle": 0,
+            "content": "\\(w_{p,a}^{h}\\) Working hours of auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.894,
+                0.475,
+                0.925
+            ],
+            "angle": 0,
+            "content": "\\(y_{p,m}\\) Target utilization of main resource type \\(\\pmb{m}\\) in period \\(p\\)"
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.062,
+                0.083,
+                0.479,
+                0.925
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.513,
+                0.086,
+                0.926,
+                0.121
+            ],
+            "angle": 0,
+            "content": "\\(y_{p,a}^{h}\\) Target utilization of auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) in period \\(\\pmb{p}\\)"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.52,
+                0.143,
+                0.681,
+                0.157
+            ],
+            "angle": 0,
+            "content": "- Decision variables"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.174,
+                0.794,
+                0.192
+            ],
+            "angle": 0,
+            "content": "\\(\\theta^{\\varsigma}\\) Profit gained in scenario \\(\\varsigma\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.193,
+                0.924,
+                0.227
+            ],
+            "angle": 0,
+            "content": "\\(F_{p}^{\\varsigma}\\) Capital in the end of period \\(\\pmb{p}\\) in scenario \\(\\varsigma\\) \\(F_{p}^{\\varsigma}\\in R^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.228,
+                0.925,
+                0.258
+            ],
+            "angle": 0,
+            "content": "\\(K_{m}\\) Number of in-house main resource type \\(\\pmb{m}\\) in period \\(p\\). \\(K_{m} \\in Z^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.259,
+                0.925,
+                0.295
+            ],
+            "angle": 0,
+            "content": "\\(K_{a}^{h}\\) Number of in-house auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category) in period \\(\\pmb{p}\\). \\(K_{p,a}^{h} \\in Z^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.295,
+                0.925,
+                0.344
+            ],
+            "angle": 0,
+            "content": "\\(X_{p,m,z}\\) Number of main resource type \\(m\\) associated with resource acquisition alternative \\(z\\) in period \\(\\pmb{p}\\). \\(X_{p,m,z} \\in Z^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.344,
+                0.925,
+                0.407
+            ],
+            "angle": 0,
+            "content": "\\(X_{p,a,z}^{h}\\) Number of auxiliary resource type \\(\\mathbf{a}\\) (of the \\(h\\) category), associated with resource acquisition alternative \\(\\mathbf{z}\\) in period \\(\\mathbf{p}\\). \\(X_{p,a,z}^{h} \\in Z^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.411,
+                0.925,
+                0.444
+            ],
+            "angle": 0,
+            "content": "\\(Q_{p,m,t}\\) Quantity of product \\(\\pmb{t}\\) produced by main resource type \\(\\pmb{m}\\) in period \\(\\pmb{p}\\). \\(Q_{p,m,t} \\in R^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.445,
+                0.925,
+                0.511
+            ],
+            "angle": 0,
+            "content": "\\(Q_{p,a,m,t}^{h}\\) Quantity of product \\(\\pmb{t}\\) produced by auxiliary resource type \\(\\pmb{a}\\) (of the \\(h\\) category), associated with main resource type \\(\\pmb{m}\\) in period \\(\\pmb{p}\\). \\(Q_{p,a,m,t}^{h} \\in R^{+}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.516,
+                0.512,
+                0.925,
+                0.544
+            ],
+            "angle": 0,
+            "content": "\\(S_{p,t}^{\\varsigma}\\) Capacity loading quantity of product \\(t\\) in the end of period \\(\\pmb{p}\\) in scenario \\(\\varsigma\\). \\(S_{p,t} \\in Z\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.517,
+                0.545,
+                0.925,
+                0.58
+            ],
+            "angle": 0,
+            "content": "\\(V_{p,t}^{\\zeta}\\) The capacity loading cost of product \\(t\\) in period \\(\\pmb{p}\\) in scenario \\(\\varsigma\\). \\(V_{p,t}^{\\zeta} \\in R\\)"
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.516,
+                0.174,
+                0.925,
+                0.58
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.597,
+                0.926,
+                0.662
+            ],
+            "angle": 0,
+            "content": "The objective of the optimal simultaneous planning decision for level of capacity is to maximize the net profit in long-term periods and can be expressed formally as follows:"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.514,
+                0.668,
+                0.926,
+                0.722
+            ],
+            "angle": 0,
+            "content": "\\[\n\\text {M a x}: (1 - \\lambda) \\sum_ {\\zeta} \\left(\\frac {\\theta^ {\\zeta}}{\\eta}\\right) - \\lambda \\left(\\frac {\\sum_ {\\zeta} \\left| \\theta^ {\\zeta} - \\overline {{\\theta^ {\\zeta}}} \\right|}{\\eta}\\right), \\tag {1}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.727,
+                0.926,
+                0.816
+            ],
+            "angle": 0,
+            "content": "where \\(\\lambda\\) is the tradeoff parameter of risk. We can see the tradeoff between the expected profits \\(\\sum_{\\varsigma}\\left(\\frac{\\theta^{\\varsigma}}{\\eta}\\right)\\) in all realized demands and its risk that is modeled as the mean absolute deviation (MAD) of profits in Eq. (1)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.816,
+                0.925,
+                0.847
+            ],
+            "angle": 0,
+            "content": "All constraints included in this model are presented as follows."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.848,
+                0.926,
+                0.913
+            ],
+            "angle": 0,
+            "content": "Required numbers of main resources. The number of existing main resources must be equal or larger than the allocated capacity (in machine quantity) to fulfill the orders promised:"
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.073,
+                0.058,
+                0.099,
+                0.07
+            ],
+            "angle": 0,
+            "content": "332"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.241,
+                0.057,
+                0.768,
+                0.073
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.07,
+                0.086,
+                0.484,
+                0.126
+            ],
+            "angle": 0,
+            "content": "\\[\nK _ {m} + \\sum_ {z} X _ {p, m, z} \\geqslant \\sum_ {t} \\frac {c _ {m , t} Q _ {p , m , t}}{r _ {m , t} w _ {p , m} y _ {p , m}}, \\quad \\forall p, m. \\tag {2}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.131,
+                0.487,
+                0.262
+            ],
+            "angle": 0,
+            "content": "Configuration constraints of main resources and auxiliary resources. Main resource type \\( m \\) must be associated with auxiliary resource type \\( a \\) (of the \\( h \\) category) to conduct promised product type \\( t \\). Hence, the quantities of products produced using main resources type \\( m \\) must be equal to the quantities of products handled by auxiliary resource type \\( a \\) (of the \\( h \\) category):"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.071,
+                0.266,
+                0.484,
+                0.299
+            ],
+            "angle": 0,
+            "content": "\\[\n\\sum_ {a} c _ {m, a, t} ^ {h} Q _ {p, a, m, t} ^ {h} = Q _ {p, m, t}, \\quad \\forall p, m, h, t. \\tag {3}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.305,
+                0.487,
+                0.372
+            ],
+            "angle": 0,
+            "content": "Required numbers of auxiliary resources. The existing quantity of auxiliary resource type \\( \\pmb{a} \\) (of the \\( \\pmb{h} \\) category) in period \\( \\pmb{p} \\) must be greater than or equal to the quantity to fulfill the orders promised:"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.07,
+                0.378,
+                0.484,
+                0.421
+            ],
+            "angle": 0,
+            "content": "\\[\nK _ {a} ^ {h} + \\sum_ {z} X _ {p, a, z} ^ {h} \\geqslant \\sum_ {m, t} \\frac {c _ {m , a , l} ^ {h} Q _ {p , a , m , t} ^ {h}}{r _ {m , a} ^ {h} w _ {p , a} ^ {h} v _ {p , a} ^ {h}}, \\quad \\forall p, a, h. \\tag {4}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.428,
+                0.487,
+                0.556
+            ],
+            "angle": 0,
+            "content": "Inventory balance from net market demands. In the demand scenario \\(\\varsigma\\), net inventory level of make-to-stock order in period \\(p\\) is calculated from the net inventory level in period \\(p - 1\\), plus the net production in period \\(p\\), and minus the market demand in period \\(p\\). It is reasonable that different demand scenarios will occur different inventory level:"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.07,
+                0.562,
+                0.484,
+                0.615
+            ],
+            "angle": 0,
+            "content": "\\[\nS _ {p, t} ^ {\\varsigma} = S _ {p - 1, t} ^ {\\varsigma} + \\sum_ {m \\in M} c _ {m, t} Q _ {p, m, t} - o _ {p, t} ^ {\\varsigma}, \\quad t \\in M T S, \\quad \\forall p, \\varsigma , \\tag {5}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.622,
+                0.484,
+                0.67
+            ],
+            "angle": 0,
+            "content": "where \\(S_{p,t}^{\\varsigma}\\) is the change in net inventory due to the realization of demand in product type \\(\\pmb{t}\\) from period \\(\\pmb{p} - 1\\) to period \\(\\pmb{p}\\)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.671,
+                0.487,
+                0.768
+            ],
+            "angle": 0,
+            "content": "Production balance from net market demands. In make-to-order case, the market demand must be fulfilled on time. Backorder or inventory is not allowed in such order type. The production quantity in period \\( p \\) must less than or equal to the demand in period \\( p \\):"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.07,
+                0.773,
+                0.484,
+                0.805
+            ],
+            "angle": 0,
+            "content": "\\[\n\\sum_ {m \\in M} c _ {m, t} Q _ {p, m, t} \\leqslant o _ {p, t} ^ {\\zeta}, \\quad t \\in M T O, \\quad \\forall p, \\tag {6}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.812,
+                0.484,
+                0.845
+            ],
+            "angle": 0,
+            "content": "where \\( Q_{p,m,t} \\) is the net production due to the realization of demand in product type \\( t \\) in period \\( p \\)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.845,
+                0.486,
+                0.926
+            ],
+            "angle": 0,
+            "content": "Cost due to exceed or lack of capacities. Different inventory level in different scenario \\(\\varsigma\\) also reflects different inventory cost. In here, each scenario has its different inventory cost due to different market demand:"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.525,
+                0.086,
+                0.935,
+                0.159
+            ],
+            "angle": 0,
+            "content": "\\[\nV _ {p, t} ^ {\\zeta} = \\left\\{ \\begin{array}{l l} j _ {p, t} S _ {p, t} ^ {\\zeta}, & V _ {p, t} ^ {\\zeta} \\geqslant 0, \\\\ l _ {p, t} \\left| S _ {p, t} ^ {\\zeta} \\right|, & \\text {o t h e r w i s e ,} \\end{array} \\quad t \\in M T S, \\quad \\forall p, \\varsigma , \\right. \\tag {7}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.166,
+                0.935,
+                0.217
+            ],
+            "angle": 0,
+            "content": "where \\(V_{p,t}^{\\varsigma}\\) is the holding/backorder cost of products due to the gap between the production and the realized demand from period \\(\\pmb{p} - 1\\) to period \\(\\pmb{p}\\). \\(V_{p,t}^{\\varsigma} \\in Z\\)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.217,
+                0.937,
+                0.345
+            ],
+            "angle": 0,
+            "content": "Capital balance equation. The capital in period \\( p \\) is computed by adding the remaining budget (the first term in the right-hand side of (8)), the incomes of production profit (the last two terms in the right-hand side of (8)), and minus the outsourcing cost of main/auxiliary resources (the second and third terms of (8)), inventory cost (the fourth terms in the right-hand side of the following equation):"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.52,
+                0.35,
+                0.934,
+                0.457
+            ],
+            "angle": 0,
+            "content": "\\[\n\\begin{array}{l} F _ {p} ^ {\\varsigma} = F _ {p - 1} ^ {\\varsigma} \\left(1 + I _ {p}\\right) - \\sum_ {m \\in M, z \\in Z} \\left(u _ {m, z} X _ {p, m, z}\\right) \\\\ - \\sum_ {a \\in A, z \\in Z, h \\in H} \\left(u _ {m, z} ^ {h} X _ {p, a, z} ^ {h}\\right) - \\sum_ {t} V _ {p, t} ^ {\\zeta} \\\\ + \\sum_ {t \\in M T S} b _ {p, t} o _ {p, t} ^ {\\zeta} + \\sum_ {t \\in M T O} b _ {p, t} Q _ {p, m, t}, \\quad \\forall p, \\varsigma . \\tag {8} \\\\ \\end{array}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.465,
+                0.937,
+                0.547
+            ],
+            "angle": 0,
+            "content": "Profits of a demand scenario. The profits of demand \\(\\varsigma\\) is calculated by net profits from period 1 to period \\(p^{\\mathrm{end}}\\), which is equivalent to sum of the net present value of equipment salvage and the residual capital in period \\(p^{\\mathrm{end}}\\):"
+        },
+        {
+            "type": "equation",
+            "bbox": [
+                0.521,
+                0.553,
+                0.934,
+                0.638
+            ],
+            "angle": 0,
+            "content": "\\[\n\\begin{array}{l} \\theta^ {\\zeta} = \\frac {F _ {p ^ {e n d}} ^ {\\zeta}}{\\prod_ {p \\in P} (1 + I _ {p})} - \\sum_ {m \\in M} \\left(e _ {m} - d _ {m}\\right) \\left(K _ {m} - K _ {0, m}\\right) \\\\ - \\sum_ {a \\in A, h \\in H} \\left(e _ {a} ^ {h} - d _ {a} ^ {h}\\right) \\left(K _ {a} ^ {h} - K _ {0, a} ^ {h}\\right), \\quad \\forall \\varsigma . \\tag {9} \\\\ \\end{array}\n\\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.647,
+                0.937,
+                0.779
+            ],
+            "angle": 0,
+            "content": "The complexity of the problem increases exponentially with the increasing resource types, the period of production horizon, and the product types. In order to solve the mathematical model, a stochastic programming-based heuristic algorithm is proposed. A genetic algorithm is modified as elaborated in the following section, to solve the stochastic programming problem."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.521,
+                0.796,
+                0.925,
+                0.813
+            ],
+            "angle": 0,
+            "content": "4. Stochastic programming-based genetic algorithm"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.52,
+                0.828,
+                0.935,
+                0.927
+            ],
+            "angle": 0,
+            "content": "Genetic algorithm is a systematic search method for optimization problem involving the mechanics of natural selection and evolution. The proposed stochastic programming-based genetic algorithm (SPGA) extends conventional stochastic programming and uses the concept of two-stage stochastic"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.233,
+                0.057,
+                0.759,
+                0.072
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.058,
+                0.926,
+                0.07
+            ],
+            "angle": 0,
+            "content": "333"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.061,
+                0.087,
+                0.475,
+                0.199
+            ],
+            "angle": 0,
+            "content": "programming. The SPGA for deriving an optimal portfolio is composed of three components: the structure of chromosomes, the operators of genetic algorithm and the sampling procedure for realizing demand scenario. This section focuses on handling the realization in sampling-based demand. The stochastic search procedure is explained as follows."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.2,
+                0.477,
+                0.264
+            ],
+            "angle": 0,
+            "content": "The algorithm is associated with sampling-based programming while maintaining GA advantages. A feasible solution must satisfy all the constraints (2)-(8)."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.063,
+                0.28,
+                0.446,
+                0.297
+            ],
+            "angle": 0,
+            "content": "4.1. Chromosome structure and SPGA operators"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.312,
+                0.475,
+                0.392
+            ],
+            "angle": 0,
+            "content": "Chromosome structure is crucial to solving the optimal simultaneous resource portfolio planning problem when using GA. Each valid chromosome represents a unique solution to the problem given a set of pending orders."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.393,
+                0.477,
+                0.571
+            ],
+            "angle": 0,
+            "content": "The chromosome of SPGA, as shown in Fig. 2, is a multi-dimension structure and is composed of six types of decision variables: \\( Q_{p,m,t} \\) (\\( \\forall \\mathfrak{p} \\in P, m \\in M, t \\in T \\)), \\( Q_{p,a,m,t}^h \\) (\\( \\forall \\mathfrak{p} \\in P, a \\in A, m \\in M, t \\in T \\)), \\( X_{p,m,z} \\) (\\( \\forall \\mathfrak{p} \\in P, m \\in M, z \\in Z \\)), \\( X_{p,a,z} \\) (\\( \\forall \\mathfrak{p} \\in P, a \\in A, z \\in Z \\)), \\( K_m \\) (\\( m \\in M \\)) and \\( K_a^h \\) (\\( a \\in A \\)), as illustrated in Fig. 2. Note that, differing from a deterministic model, the same chromosome content (i.e., a pair of variables and values) may result in different fitness values because demands are sampled randomly at each generation."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.511,
+                0.087,
+                0.928,
+                0.249
+            ],
+            "angle": 0,
+            "content": "The mutation operator of SPGA is uniform mutation (Haupt and Haupt, 1998; Gen and Cheng, 2000). In addition, for making SPGA possess the property of diversification search, we use a hybrid crossover strategy. The crossover operator randomly adopts one crossover operator among single-point crossover, two-point crossover, uniform crossover (Chambers, 1995), arithmetical crossover, uniform arithmetical crossover, and blending crossover (Haupt and Haupt, 1998)."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.511,
+                0.281,
+                0.877,
+                0.331
+            ],
+            "angle": 0,
+            "content": "4.2. SPGA procedure and its complexity for sampling-based stochastic programming of the proposed resource portfolio model"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.511,
+                0.345,
+                0.927,
+                0.505
+            ],
+            "angle": 0,
+            "content": "The proposed SPGA is distinguished from a regular GA by the following ways. First, a chromosome repair mechanism (refer to Wang et al., in press) is developed to reduce computational burden. Second, a multi-dimensional chromosome structure is developed to fulfill the complicated decision contents regarding capacity planning of multi-resources. In addition, a hybrid crossover strategy is employed to diversify searching paths in the SPGA."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.506,
+                0.927,
+                0.571
+            ],
+            "angle": 0,
+            "content": "The procedure of SPGA is depicted in Fig. 3. During the sampling procedure, a demand scenario \\(\\varsigma\\) has its probability \\(\\beta^5\\). SPGA chooses the best suitable resource portfolio and capacity allocation plan"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.168,
+                0.59,
+                0.831,
+                0.902
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.369,
+                0.91,
+                0.62,
+                0.924
+            ],
+            "angle": 0,
+            "content": "Fig. 2. Chromosome design of SPGA."
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.074,
+                0.058,
+                0.099,
+                0.069
+            ],
+            "angle": 0,
+            "content": "334"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.241,
+                0.057,
+                0.765,
+                0.071
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.313,
+                0.088,
+                0.716,
+                0.384
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.171,
+                0.387,
+                0.65,
+                0.404
+            ],
+            "angle": 0,
+            "content": "Stochastic Programming Based Genetic Algorithm (SPGA)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.172,
+                0.404,
+                0.221,
+                0.418
+            ],
+            "angle": 0,
+            "content": "Begin"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.198,
+                0.419,
+                0.446,
+                0.436
+            ],
+            "angle": 0,
+            "content": "Initialize population \\([pm(t - a)]\\);"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.198,
+                0.442,
+                0.233,
+                0.457
+            ],
+            "angle": 0,
+            "content": "\\(\\eta = 0\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.191,
+                0.461,
+                0.502,
+                0.477
+            ],
+            "angle": 0,
+            "content": "For generation \\( g = 1 \\) to \\( \\# \\) of generation \\( (G) \\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.217,
+                0.477,
+                0.66,
+                0.493
+            ],
+            "angle": 0,
+            "content": "IF Sampling Condition=True//Current portfolio converges"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.217,
+                0.496,
+                0.538,
+                0.513
+            ],
+            "angle": 0,
+            "content": "Then \\(\\eta = \\eta + 1\\), and generate then \\(\\eta / h\\) sample;"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.217,
+                0.515,
+                0.277,
+                0.53
+            ],
+            "angle": 0,
+            "content": "End IF"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.199,
+                0.535,
+                0.474,
+                0.552
+            ],
+            "angle": 0,
+            "content": "For Sample \\(\\varsigma = 1\\) to # of Sample \\((\\eta)\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.208,
+                0.554,
+                0.55,
+                0.571
+            ],
+            "angle": 0,
+            "content": "For population \\(q = 1\\) to # of population size \\((Q)\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.227,
+                0.573,
+                0.717,
+                0.591
+            ],
+            "angle": 0,
+            "content": "Reproduction \\((GQ\\eta)\\): using roulette wheel method \\([pm(t - a + z)]\\);"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.226,
+                0.595,
+                0.831,
+                0.615
+            ],
+            "angle": 0,
+            "content": "Crossover \\((GQ\\eta)\\): recombine \\(F(g)\\) to yield chromosome set \\(S^{\\prime}(g)\\) \\([2pm(t - a - z)]\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.226,
+                0.62,
+                0.763,
+                0.637
+            ],
+            "angle": 0,
+            "content": "Mutation \\((GQ\\eta)\\): alter the values of the genes of \\(F(g)\\) to yield \\(S''(g)\\), and"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.299,
+                0.642,
+                0.706,
+                0.661
+            ],
+            "angle": 0,
+            "content": "new population \\(S(g)\\gets S^{\\prime}(g) + S^{\\prime \\prime}(g)[2pm(t - a + z)];\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.226,
+                0.666,
+                0.811,
+                0.684
+            ],
+            "angle": 0,
+            "content": "Repair \\((GQ\\eta)\\): repair infeasible solutions in \\(S(g)\\) to be feasible solutions[ pma ];"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.226,
+                0.686,
+                0.486,
+                0.702
+            ],
+            "angle": 0,
+            "content": "Evaluation: Total Budget \\((GQ_{1})\\) --"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.364,
+                0.704,
+                0.51,
+                0.721
+            ],
+            "angle": 0,
+            "content": "\\(\\mathrm{F_0}\\) .. \\([mt + (m - a)z]\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.364,
+                0.723,
+                0.596,
+                0.74
+            ],
+            "angle": 0,
+            "content": "\\(\\mathrm{F_1 = F_0(1 + I_1)[2(mt + (m - a)z]}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.364,
+                0.743,
+                0.67,
+                0.786
+            ],
+            "angle": 0,
+            "content": "\\[ \\mathrm{F}_p = \\mathrm{F}_1\\left(\\prod_p\\left(1 + I_p\\right)\\right):[p(mt + (m - a)z)]; \\]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.364,
+                0.787,
+                0.63,
+                0.804
+            ],
+            "angle": 0,
+            "content": "Objective: \\([p(mt + (m - a)z) + m + a]\\);"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.208,
+                0.806,
+                0.278,
+                0.82
+            ],
+            "angle": 0,
+            "content": "End For"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.209,
+                0.839,
+                0.278,
+                0.853
+            ],
+            "angle": 0,
+            "content": "End For"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.199,
+                0.858,
+                0.267,
+                0.871
+            ],
+            "angle": 0,
+            "content": "End For"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.177,
+                0.884,
+                0.214,
+                0.897
+            ],
+            "angle": 0,
+            "content": "End"
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.366,
+                0.905,
+                0.637,
+                0.92
+            ],
+            "angle": 0,
+            "content": "Fig. 3. Procedure of the proposed SPGA."
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.233,
+                0.057,
+                0.759,
+                0.072
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.058,
+                0.926,
+                0.07
+            ],
+            "angle": 0,
+            "content": "335"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.061,
+                0.087,
+                0.477,
+                0.215
+            ],
+            "angle": 0,
+            "content": "for the set of scenarios. That is, for each of the realized demand set \\((1,2,\\dots,\\varsigma)\\), a total of \\(p\\times t\\) random variables of \\(o_{p,t}^{\\varsigma}\\) (a realized demand of product \\(t\\) in period \\(p\\)) represent the realization of the demand scenario. The objective value of a portfolio (i.e., a single chromosome of SPGA) is evaluated when computing the expected profits of all scenarios (i.e., the fitness)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.061,
+                0.215,
+                0.478,
+                0.376
+            ],
+            "angle": 0,
+            "content": "Although the initial portfolio would be far from optimal (owing to insufficient search time), SPGA can guide the search along the direction to derive the most suitable portfolio for all realized demands. The stopping criterion can be either the maximal number of generations or the objective values when the best resource portfolios of the \\(\\zeta\\)th and \\(\\zeta + 1\\) scenarios converge. Finally, the portfolios will converge, given the optimum resource planning and capacity allocation plan."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.061,
+                0.377,
+                0.479,
+                0.492
+            ],
+            "angle": 0,
+            "content": "By assuming the maximal number of samples \\((\\eta)\\) as the stopping criterion, the complexity can be easily identified by analyzing every operation of the procedure (as indicated in brackets at the end of lines). The resulting complexity in the worst case is \\(\\mathrm{O}(GQ\\eta \\mathrm{pm}(t + a + z)) = \\mathrm{O}(pm(t + a) + 5GQ\\eta \\mathrm{pm}(t + a + z) + GQ\\eta \\mathrm{p}(mt + (m + a)z) + m + a)\\)."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.512,
+                0.087,
+                0.905,
+                0.105
+            ],
+            "angle": 0,
+            "content": "5. Performance evaluation and sensitivity analysis"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.511,
+                0.119,
+                0.927,
+                0.491
+            ],
+            "angle": 0,
+            "content": "A real life application in semiconductor testing industry is given below to illustrate the proposed SPGA. The semiconductor testing industry constantly struggles for resource planning with constrained budget to invest, limited capacity of resources and lumpy demands. In the industry, simultaneous resources for processing an order are commonly considered. Testers are the main resource for testing semiconductor chips. Many other kinds of resources (such as handlers, load boards, tools, and testing programs) work simultaneously to conduct the test for a wafer/chip. Each resource may have several types resulting from different functionalities and processing precisions. A tester performs the functional test and a handler feeds a wafer/chip material into the tester. Each testing task requires a specific temperature setting for the handlers. The equipment costs of a tester set usually range from three hundred thousand to two million US dollars. The cost of a handler is around one-tenth of a tester. Slight improvements of capacity investment and utilization can thus result in gains of millions of dollars per year."
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.253,
+                0.52,
+                0.741,
+                0.678
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.112,
+                0.685,
+                0.877,
+                0.703
+            ],
+            "angle": 0,
+            "content": "Fig. 4. Fitness evolution of SPGA (the maximal number of samples \\(= 50\\), \\(\\lambda = 0.5\\). Normal distribution with \\(\\sigma = 7000\\))."
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.248,
+                0.734,
+                0.744,
+                0.888
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.062,
+                0.896,
+                0.927,
+                0.926
+            ],
+            "angle": 0,
+            "content": "Fig. 5. Fitness evolution of SPGA to a large case with 20 testers (the maximal number of samples \\(= 50\\), \\(\\lambda = 0.5\\). Normal distribution with \\(\\sigma = 7000\\))."
+        }
+    ],
+    [
+        {
+            "type": "table_caption",
+            "bbox": [
+                0.077,
+                0.074,
+                0.109,
+                0.088
+            ],
+            "angle": 0,
+            "content": "Table 1"
+        },
+        {
+            "type": "table_caption",
+            "bbox": [
+                0.076,
+                0.09,
+                0.664,
+                0.106
+            ],
+            "angle": 0,
+            "content": "(a) Main resource portfolio plan suggested by SPGA, (b) auxiliary resource portfolio plan suggested by SPGA, and (c) task allocation plan by SPGA"
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.075,
+                0.108,
+                0.913,
+                0.936
+            ],
+            "angle": 0,
+            "content": "<table><tr><td rowspan=\"2\" colspan=\"2\">Main resource type</td><td rowspan=\"2\" colspan=\"4\">Main resource quantity by</td><td colspan=\"14\">Period (p)</td><td></td><td></td></tr><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"20\">(a)</td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Tester #1</td><td colspan=\"4\">In-house (1)</td><td>2</td><td></td><td></td><td></td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer (2)</td><td>0</td><td>0</td><td>2</td><td>2</td><td>0</td><td>1</td><td>0</td><td>2</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent (3)</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net (4) = (1) + (2) + (3)</td><td>2</td><td>2</td><td>4</td><td>4</td><td>2</td><td>3</td><td>2</td><td>4</td><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Tester #2</td><td colspan=\"4\">In-house</td><td>1</td><td></td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer</td><td>0</td><td>0</td><td>4</td><td>1</td><td>1</td><td>4</td><td>0</td><td>2</td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net</td><td>1</td><td>5</td><td>9</td><td>6</td><td>6</td><td>9</td><td>5</td><td>7</td><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Tester #3</td><td colspan=\"4\">In-house</td><td>1</td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer</td><td>0</td><td>0</td><td>1</td><td>4</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net</td><td>1</td><td>1</td><td>2</td><td>5</td><td>2</td><td>1</td><td>1</td><td>1</td><td>2,</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"2\">Auxiliary resource type</td><td colspan=\"18\">Auxiliary resource quantity by</td><td></td><td></td></tr><tr><td colspan=\"20\">(b)</td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Handler #1</td><td colspan=\"4\">In-house Qty</td><td>2</td><td></td><td></td><td></td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer Qty</td><td>0</td><td>0</td><td>5</td><td>2</td><td>3</td><td>2</td><td>0</td><td>5</td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent Qty</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net Qty</td><td>2</td><td>2</td><td>7</td><td>4</td><td>5</td><td>4</td><td>2</td><td>7</td><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Handler #2</td><td colspan=\"4\">In-house Qty</td><td>3</td><td></td><td></td><td></td><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer Qty</td><td>0</td><td>0</td><td>5</td><td>9</td><td>5</td><td>4</td><td>3</td><td>5</td><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent Qty</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net Qty</td><td>3</td><td>4</td><td>9</td><td>13</td><td>9</td><td>8</td><td>7</td><td>9</td><td>11</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Handler #3</td><td colspan=\"4\">In-house Qty</td><td>3</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer Qty</td><td>0</td><td>0</td><td>2</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent Qty</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net Qty</td><td>3</td><td>0</td><td>2</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\" colspan=\"2\">Handler #4</td><td colspan=\"4\">In-house Qty</td><td>2</td><td></td><td></td><td></td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Transfer Qty</td><td>0</td><td>0</td><td>1</td><td>2</td><td>1</td><td>5</td><td>0</td><td>1</td><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Rent Qty</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"4\">Net Qty</td><td>2</td><td>2</td><td>3</td><td>4</td><td>3</td><td>7</td><td>2</td><td>3</td><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"3\">Period</td><td colspan=\"3\">Main resource 1 tester #1</td><td colspan=\"2\">Main resource 2 tester #2</td><td colspan=\"3\">Main resource 3 tester #3</td><td colspan=\"2\">Auxiliary resource 1 Handler #1</td><td colspan=\"2\">Auxiliary resource 2 Handler #2</td><td colspan=\"3\">Auxiliary resource 3 Handler #3</td><td colspan=\"4\">Auxiliary resource 4 Handler #4</td><td></td><td></td></tr><tr><td rowspan=\"2\">Product 1</td><td rowspan=\"2\">Product 2</td><td rowspan=\"2\">Product 3</td><td rowspan=\"2\">Product 1</td><td rowspan=\"2\">Product 2</td><td rowspan=\"2\">Product 3</td><td rowspan=\"2\">Product 1</td><td rowspan=\"2\">Product 2</td><td rowspan=\"2\">Product 3</td><td rowspan=\"2\">MR 1</td><td rowspan=\"2\">MR 2</td><td rowspan=\"2\">MR 3</td><td rowspan=\"2\">MR 1</td><td rowspan=\"2\">MR 2</td><td rowspan=\"2\">MR 3</td><td rowspan=\"2\">MR 1</td><td rowspan=\"2\">MR 2</td><td rowspan=\"2\">MR 3</td><td rowspan=\"2\">MR 1</td><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td colspan=\"20\">(c)</td><td></td><td></td></tr><tr><td>1</td><td>6625</td><td>13,990</td><td>-</td><td>20,615</td><td>-</td><td>15,379</td><td>-</td><td>8231</td><td>0</td><td>-</td><td>14,256</td><td>-</td><td>20,615</td><td>11,699</td><td>2296</td><td>-</td><td>-</td><td>0</td><td>-</td><td>10,039</td><td>5935</td></tr><tr><td>2</td><td>15,949</td><td>21,244</td><td>-</td><td>37,193</td><td>-</td><td>15,379</td><td>-</td><td>0</td><td>0</td><td>-</td><td>42,097</td><td>-</td><td>37,193</td><td>0</td><td>0</td><td>-</td><td>-</td><td>0</td><td>-</td><td>10,475</td><td>0</td></tr><tr><td>3</td><td>6373</td><td>22,166</td><td>-</td><td>28,539</td><td>-</td><td>13,545</td><td>-</td><td>0</td><td>5747</td><td>-</td><td>13,214</td><td>-</td><td>28,539</td><td>13,688</td><td>4545</td><td>-</td><td>-</td><td>1202</td><td>-</td><td>15,182</td><td>0</td></tr><tr><td>4</td><td>6855</td><td>16,181</td><td>-</td><td>23,036</td><td>-</td><td>15,379</td><td>-</td><td>5063</td><td>0</td><td>-</td><td>28,512</td><td>-</td><td>23,036</td><td>9903</td><td>3742</td><td>-</td><td>-</td><td>1321</td><td>-</td><td>0</td><td>0</td></tr><tr><td>5</td><td>7124</td><td>22,166</td><td>-</td><td>29,290</td><td>-</td><td>15,379</td><td>-</td><td>0</td><td>0</td><td>-</td><td>17,121</td><td>-</td><td>29,290</td><td>19,920</td><td>0</td><td>-</td><td>-</td><td>0</td><td>-</td><td>7628</td><td>0</td></tr><tr><td>6</td><td>3052</td><td>19,988</td><td>-</td><td>23,040</td><td>-</td><td>12,438</td><td>-</td><td>1256</td><td>0</td><td>-</td><td>12,488</td><td>-</td><td>23,040</td><td>20,364</td><td>995</td><td>-</td><td>-</td><td>23</td><td>-</td><td>2626</td><td>238</td></tr><tr><td>7</td><td>7875</td><td>21,244</td><td>-</td><td>29,119</td><td>-</td><td>12,438</td><td>-</td><td>0</td><td>0</td><td>-</td><td>25,723</td><td>-</td><td>29,119</td><td>15,834</td><td>0</td><td>-</td><td>-</td><td>0</td><td>-</td><td>0</td><td>0</td></tr><tr><td>8</td><td>3339</td><td>21,244</td><td>-</td><td>24,583</td><td>-</td><td>16,476</td><td>-</td><td>0</td><td>0</td><td>-</td><td>18,960</td><td>-</td><td>24,583</td><td>16,186</td><td>0</td><td>-</td><td>-</td><td>0</td><td>-</td><td>5913</td><td>0</td></tr></table>"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.928,
+                0.074,
+                0.941,
+                0.099
+            ],
+            "angle": 90,
+            "content": "336"
+        },
+        {
+            "type": "aside_text",
+            "bbox": [
+                0.927,
+                0.243,
+                0.941,
+                0.765
+            ],
+            "angle": 90,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.235,
+                0.058,
+                0.756,
+                0.072
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.058,
+                0.926,
+                0.07
+            ],
+            "angle": 0,
+            "content": "337"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.087,
+                0.477,
+                0.279
+            ],
+            "angle": 0,
+            "content": "The data in the problem are derived from a chip final testing plant of a leading semiconductor testing firm in northern Taiwan as follows: (1) three types of main resource, named semiconductor-chip testers #1, 2 and 3; (2) four types of auxiliary resource, named semiconductor-chip handlers #1, 2, 3, and 4; (3) demands are represented by three products over eight quarters. Product 1 is of make-to-stock type and products 2 and 3 are of make-to-order type; (4) the initial budget is 20 million, with \\(2\\%\\) interest rate and \\(80\\%\\) target utility, (5) 1800 available operating hours in each period."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.28,
+                0.475,
+                0.392
+            ],
+            "angle": 0,
+            "content": "We have employed a traditional GA to the problem under investigation; however, it produces numerous infeasible chromosomes in each generation, resulting in poor computational performances. We thus employ a random-search algorithm to compare it with the proposed SPGA algorithm. Our objective is to justify the SPGA performance."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.393,
+                0.477,
+                0.538
+            ],
+            "angle": 0,
+            "content": "A random search may find a solution as quickly as a GA (Wikipedia, 2006). The random-search algorithm is an algorithm that employs a degree of randomness as part of its logic. Researchers in the field have made wide use of random-search methods for the analysis and the design of uncertain systems (Tempo et al., 2005). When properly used, these methods have proved to be efficient in solving high-complexity problems (Papadimitriou, 1993)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.538,
+                0.475,
+                0.586
+            ],
+            "angle": 0,
+            "content": "The major difference between the random-search algorithm used herein and the SPGA is that the former does not use chromosome operations (i.e.,"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.51,
+                0.087,
+                0.927,
+                0.392
+            ],
+            "angle": 0,
+            "content": "crossover, mutation and reproduction). Except for this difference, the two algorithms are almost the same. Analogical to the SPGA, the random-search algorithm randomly produces a set of decision variables for quantity of products, \\( Q_{p,m,t} \\) and \\( Q_{p,a,m,t}^{h} \\). Then, the number of resources, \\( X_{p,m,z} \\) and \\( X_{p,a,z}^{h} \\), is derived accordingly. Owing to the technological infeasibility among the resources, the random-search algorithm also uses the repair mechanism to fix the chromosomes. For a fair comparison, both the setting of the scenario-sampling time interval and the search time within a sampling period are the same for the two algorithms. Once a sampling period is reached, one more scenario is produced and the averaged fitness value of the chromosomes with respect to the current scenarios is evaluated. This procedure continues until the maximum number of scenarios is reached (50 in our case) and returns the best chromosome."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.51,
+                0.393,
+                0.927,
+                0.553
+            ],
+            "angle": 0,
+            "content": "The algorithm converges rapidly to a near optimal solution, as shown in Fig. 4. The SPGA outperforms the random-search algorithm and improves the fitness value by \\(2.2\\%\\), consuming the same amount of CPU time. In the study, we examine a large-sized case with 20 types of testers and four types of handlers, and the results shown in Fig. 5 confirm that the proposed SPGA has a rapid convergence rate in fitness values, even for a large-scale problem."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.512,
+                0.554,
+                0.929,
+                0.587
+            ],
+            "angle": 0,
+            "content": "Table 1 lists the results of the optimal portfolio. Fig. 6 examines the expected objective value of"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.151,
+                0.614,
+                0.838,
+                0.889
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.062,
+                0.896,
+                0.929,
+                0.926
+            ],
+            "angle": 0,
+            "content": "Fig. 6. Net profits under \\(\\lambda = 0.5\\) and \\(\\eta = 50\\), different demand distributions (normal vs. uniform), and variances (high variance, middle variance, and no risk)."
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.074,
+                0.059,
+                0.098,
+                0.069
+            ],
+            "angle": 0,
+            "content": "338"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.244,
+                0.059,
+                0.763,
+                0.071
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.088,
+                0.481,
+                0.118
+            ],
+            "angle": 0,
+            "content": "different demand distributions and variances. As can be seen, high risk harms the profit and vice versa."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.119,
+                0.482,
+                0.311
+            ],
+            "angle": 0,
+            "content": "The SPGA can therefore be employed to perform many what-if analyses of a variety of risk considerations according to initial budget, the number of potential products, and other factors. For each run, the SPGA can also suggest valuable information about which type and the amount of main resources and auxiliary resources that should be invested in the initial period, the amount of resources that should be rented, transferred/disposed during each time bucket to fulfill the uncertainty orders, thus enabling the facility to tradeoff between the profits and risk under different risk factor \\(\\lambda\\)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.312,
+                0.482,
+                0.408
+            ],
+            "angle": 0,
+            "content": "The effect of different SPGA parameters on objective values is reported in Table 2. As can be seen, a high population and low mutation rate design can obtain the highest objective value. The profit drops only \\(8.7\\%\\) in case that the worst parameter design is employed."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.409,
+                0.482,
+                0.505
+            ],
+            "angle": 0,
+            "content": "Table 3 presents the effect of different risk factors, \\(\\lambda\\), on the expected maximal objective value under different demand patterns. Note that \\(\\lambda = 0\\) implies no hedging (with respect to demand risk) is considered and its objective function is the net present profit of the optimal resource portfolio. Again, from these"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.525,
+                0.088,
+                0.932,
+                0.151
+            ],
+            "angle": 0,
+            "content": "experiments, one can easily find that high variance of demands results in worse profit gain. This also confirms that a proper algorithm is needed for resource portfolio planning under demand uncertainty."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.525,
+                0.171,
+                0.637,
+                0.184
+            ],
+            "angle": 0,
+            "content": "6. Conclusions"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.525,
+                0.202,
+                0.932,
+                0.506
+            ],
+            "angle": 0,
+            "content": "This study has developed a stochastic mathematical programming model to solve the resource portfolio problem in high-tech industries considering demand uncertainty. This study has made a contribution in successfully extending the research scope from a deterministic-demand assumption to a stochastic-demand situation which is more practical but highly complicated and challenging. The model has incorporated several significant characteristics—simultaneous resource constraints, capacity limitations, time value of capital, inventory consideration, equipment investment alternatives and stochastic demands through a sampling-based scheme. Furthermore, a stochastic programming-based genetic algorithm has been developed to solve the highly computationally complex problem. Empirical studies and sensitivity analyses have shown that the proposed algorithm outperforms the random-search algorithm. The algorithm can determine"
+        },
+        {
+            "type": "table_caption",
+            "bbox": [
+                0.074,
+                0.532,
+                0.615,
+                0.558
+            ],
+            "angle": 0,
+            "content": "Table 2 Sensitivity experiments of SPGA parameters to the expected maximal objective value"
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.071,
+                0.559,
+                0.934,
+                0.726
+            ],
+            "angle": 0,
+            "content": "<table><tr><td rowspan=\"2\" colspan=\"2\">SPGA parameters</td><td colspan=\"2\">Crossover rate (0.9)</td><td colspan=\"2\">Crossover rate (0.75)</td></tr><tr><td>Mutation rate (0.10)</td><td>Mutation rate (0.05)</td><td>Mutation rate (0.10)</td><td>Mutation rate (0.05)</td></tr><tr><td rowspan=\"2\">Population size (30)</td><td>CPU time (7000 seconds)</td><td>45,762,948</td><td>47,706,208</td><td>48,345,388</td><td>47,258,400</td></tr><tr><td>CPU time (14,000 seconds)</td><td>44,021,876 (-8.7%)</td><td>46,934,176</td><td>46,725,900</td><td>46,577,212</td></tr><tr><td rowspan=\"2\">Population size (200)</td><td>CPU time (7000 seconds)</td><td>46,396,488</td><td>47,516,872</td><td>46,087,824</td><td>48,199,508</td></tr><tr><td>CPU time (14,000 seconds)</td><td>45,949,628</td><td>46,678,264</td><td>45,124,580</td><td>46,596,152</td></tr></table>"
+        },
+        {
+            "type": "table_footnote",
+            "bbox": [
+                0.075,
+                0.728,
+                0.462,
+                0.74
+            ],
+            "angle": 0,
+            "content": "Normal distribution of demands with \\(\\sigma = 7000\\) and \\(\\lambda = 0.50\\)."
+        },
+        {
+            "type": "table_caption",
+            "bbox": [
+                0.074,
+                0.783,
+                0.645,
+                0.808
+            ],
+            "angle": 0,
+            "content": "Table 3 Sensitivity experiments of tradeoff risk parameter to the expected maximal objective value"
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.071,
+                0.808,
+                0.934,
+                0.923
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>Demand distribution</td><td>Constant demand</td><td colspan=\"2\">Normal distribution</td><td colspan=\"2\">Uniform distribution</td></tr><tr><td>Standard deviation</td><td>σ = 0</td><td>σ = 3500</td><td>σ = 7000</td><td>σ = 3500</td><td>σ = 7000</td></tr><tr><td>λ = 1.00</td><td>0</td><td>-2,428,198</td><td>-4,975,578</td><td>-2,268,285</td><td>-3,663,712</td></tr><tr><td>λ = 0.75</td><td>31,359,124</td><td>24,663,252</td><td>22,078,144</td><td>28,392,016</td><td>22,495,330</td></tr><tr><td>λ = 0.50</td><td>62,737,868</td><td>53,500,980</td><td>46,934,176</td><td>57,661,052</td><td>47,929,228</td></tr><tr><td>λ = 0.25</td><td>91,120,784</td><td>80,959,080</td><td>69,326,104</td><td>87,984,344</td><td>72,820,704</td></tr><tr><td>λ = 0.00</td><td>112,638,000</td><td>94,327,768</td><td>92,745,600</td><td>100,046,456</td><td>92,178,152</td></tr></table>"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.235,
+                0.058,
+                0.756,
+                0.072
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.9,
+                0.059,
+                0.926,
+                0.07
+            ],
+            "angle": 0,
+            "content": "339"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.066,
+                0.088,
+                0.474,
+                0.119
+            ],
+            "angle": 0,
+            "content": "effectively and efficiently the most profitable resource portfolio under demand uncertainty."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.067,
+                0.14,
+                0.214,
+                0.155
+            ],
+            "angle": 0,
+            "content": "Acknowledgements"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.066,
+                0.172,
+                0.475,
+                0.25
+            ],
+            "angle": 0,
+            "content": "The authors gratefully acknowledge the valuable comments and suggestions of the anonymous referees. This work is partially supported by the National Science Council of the Republic of China to the authors."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.067,
+                0.271,
+                0.151,
+                0.285
+            ],
+            "angle": 0,
+            "content": "References"
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.067,
+                0.302,
+                0.475,
+                0.355
+            ],
+            "angle": 0,
+            "content": "Alonso, A., Escudero, L.F., Ortuno, M.T., 2000. Theory and methodology—a stochastic 0-1 program based approach for the air traffic flow management problem. European Journal of Operational Research 120, 47-62."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.357,
+                0.475,
+                0.409
+            ],
+            "angle": 0,
+            "content": "Bard, J.F., Srinivasan, K., Tirupati, D., 1999. An optimization approach to capacity expansion in semiconductor manufacturing facilities. International Journal of Production Research 37 (15), 3359-3382."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.41,
+                0.475,
+                0.462
+            ],
+            "angle": 0,
+            "content": "Barut, M., Sridharan, V., 2004. Production, manufacturing and logistics—design and evaluation of a dynamic capacity apportionment procedure. European Journal of Operational Research 155, 112-133."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.464,
+                0.475,
+                0.502
+            ],
+            "angle": 0,
+            "content": "Bashyam, T.C.A., 1996. Competitive capacity expansion under demand uncertainty. European Journal of Operational Research 95 (1), 89-114."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.504,
+                0.475,
+                0.543
+            ],
+            "angle": 0,
+            "content": "Chambers, L., 1995 Practical Handbook of Genetic Algorithms: Applications, Vol. 1. Chapman & Hall/CRC Press, Boca Raton, FL, pp. 106-113."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.545,
+                0.475,
+                0.583
+            ],
+            "angle": 0,
+            "content": "Chang, T.J., Meade, N., Beasley, J.E., Sharaiha, Y.M., 2000. Heuristic for cardinality constrained portfolio optimization. Computer & Operation Research 27, 1271-1302."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.584,
+                0.475,
+                0.624
+            ],
+            "angle": 0,
+            "content": "Chang, K.H., Chen, H.J., Liu, C.H., 2002. A stochastic programming model for portfolio selection. Journal of the Chinese Institute of Industrial Engineers 19, 31-41."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.625,
+                0.475,
+                0.664
+            ],
+            "angle": 0,
+            "content": "Chen, Z.L., Li, S., Tirupati, D., 2002. A scenario-based stochastic programming approach for technology and capacity planning. Computer & Operations Research 29, 781-806."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.665,
+                0.475,
+                0.704
+            ],
+            "angle": 0,
+            "content": "David, E., 1953. Genetic Algorithm in Search, Optimization and Machine Learning. Addison Wesley Publishing Company, Inc., pp. 1-57."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.705,
+                0.475,
+                0.744
+            ],
+            "angle": 0,
+            "content": "Ehrgott, M., Klamroth, K., Schwehm, C., 2004. Decision aiding an MCDM approach to portfolio optimization. European Journal of Operational Research 155, 752-770."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.745,
+                0.475,
+                0.772
+            ],
+            "angle": 0,
+            "content": "Gen, M., Cheng, R., 2000. Genetic Algorithms and Engineering Optimization. John Wiley & Sons, Inc."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.773,
+                0.475,
+                0.798
+            ],
+            "angle": 0,
+            "content": "Gritsevskyi, A., Nakićenović, N., 2000. Modeling Uncertainty of Induced Technological Change. Policy 20, 907-921."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.799,
+                0.475,
+                0.825
+            ],
+            "angle": 0,
+            "content": "Haupt, R.L., Haupt, S.E., 1998. Practical Genetic Algorithms. John Wiley & Sons, Canada."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.826,
+                0.475,
+                0.865
+            ],
+            "angle": 0,
+            "content": "Higgins, A., David, I., 2005. A simulation model for capacity planning in sugarcane transport. Computer and Electronics in Agriculture 47, 85-102."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.866,
+                0.475,
+                0.892
+            ],
+            "angle": 0,
+            "content": "Higle, J.L., Sen, S., 1996. Stochastic Decomposition. Kluwer Academic Publishers., Dordrecht."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.066,
+                0.893,
+                0.475,
+                0.919
+            ],
+            "angle": 0,
+            "content": "Holland, J.H., 1975. Adaptation in Natural and Artificial Systems. University of Michigan Press, Detroit MI."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.066,
+                0.302,
+                0.475,
+                0.919
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.515,
+                0.087,
+                0.926,
+                0.153
+            ],
+            "angle": 0,
+            "content": "Hung, Y.F., Leachman, R.C., 1996. A production planning methodology for semiconductor manufacturing based on interactive simulation and linear programming calculations. IEEE Transactions on Semiconductor Manufacturing 9 (2), 257-269."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.155,
+                0.926,
+                0.208
+            ],
+            "angle": 0,
+            "content": "Hung, Y.F., Wang, Q.Z., 1997. A new formulation technique for alternative material planning - an approach for semiconductor bin allocation planning. Computer and Industrial Engineering 32 (2), 281-297."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.209,
+                0.926,
+                0.248
+            ],
+            "angle": 0,
+            "content": "Ip, W.H., Li, Y., Man, K.F., Tang, K.S., 2000. Multi-product planning and scheduling using genetic algorithm approach. Computer and Industrial engineering 38, 283-296."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.249,
+                0.926,
+                0.288
+            ],
+            "angle": 0,
+            "content": "Lee, J.H., 2002. Artificial intelligence-based sampling planning system for dynamic manufacturing process. Expert Systems with Application 22, 117-133."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.289,
+                0.926,
+                0.342
+            ],
+            "angle": 0,
+            "content": "Li, Y., Ip, W.H., Wang, W.H., 1998. Genetic algorithm approach to earliness and tardiness production scheduling and planning problem. Computer and Industrial Engineering 54, 65-76."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.343,
+                0.926,
+                0.395
+            ],
+            "angle": 0,
+            "content": "Merkle, D., Middendorf, M., Schmeck, H., 2002. Ant colony optimization for resource-constrained project scheduling. IEEE Transactions on Evolutionary Computation 6 (4), 333-346."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.397,
+                0.926,
+                0.422
+            ],
+            "angle": 0,
+            "content": "Mitsuo, G., Runwei, C., 2000. Genetic Algorithms and Engineering Optimization. A Wiley-Interscience Publication."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.423,
+                0.926,
+                0.463
+            ],
+            "angle": 0,
+            "content": "Neslihan, A., 2002. Notes on the merger strategy of high versus low-tech industries: complementarities and moral hazard. Economics Bulletin 12 (7), 1-12."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.464,
+                0.926,
+                0.502
+            ],
+            "angle": 0,
+            "content": "Papadimitriou, C., 1993. Computational complexity, first ed. Chapter 11: Randomized Computation Spring, ISBN 0-201-53082-1."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.503,
+                0.926,
+                0.569
+            ],
+            "angle": 0,
+            "content": "Pongcharoen, P., Hicks, C., Braiden, P.M., 2004. The development of genetic algorithms for the finite capacity scheduling of complex products, with multiple levels of product structure. European Journal of Operational Research 152, 215-225."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.571,
+                0.926,
+                0.61
+            ],
+            "angle": 0,
+            "content": "Rajagopalan, S., 1994. Capacity expansion with alternative technology choices. European Journal of Operational Research, 392-402."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.611,
+                0.926,
+                0.663
+            ],
+            "angle": 0,
+            "content": "Swaminathan, J.M., 2000. Tool capacity planning for semiconductor fabrication facilities under demand uncertainty. European Journal of Operational Research 120, 545-558."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.664,
+                0.926,
+                0.704
+            ],
+            "angle": 0,
+            "content": "Tempo, R., Calafiore, G., Dabbene, F., 2005. Randomized Algorithms for Analysis and Control of Uncertain Systems. Springer-Verlag, London, ISBN 1-85233-524-6."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.705,
+                0.926,
+                0.758
+            ],
+            "angle": 0,
+            "content": "Tiwari, M.K., Vidyarth, N.K., 2000. Solving machine loading problems in a flexible manufacturing system using a genetic algorithm based heuristic approach. International Journal of Production Research 38 (14), 3357-3384."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.759,
+                0.926,
+                0.824
+            ],
+            "angle": 0,
+            "content": "Wang, K.J., Hou, T.C., 2003. Modeling and resolving the joint problem of capacity expansion and allocation with multiple resources and limited budget in semiconductor testing industry. International Journal of Production Research 41 (14), 3217-3235."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.825,
+                0.926,
+                0.866
+            ],
+            "angle": 0,
+            "content": "Wang, K.J., Lin, S.H., 2002. Capacity expansion and allocation for a semiconductor testing facility with a constrained budget. Production Planning and Control 13 (5), 429-437."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.516,
+                0.867,
+                0.926,
+                0.919
+            ],
+            "angle": 0,
+            "content": "Wang, S.-M., Chen, J., Wang, K.-J., in press. Resource portfolio planning of make-to-stock products using a constraint programming based genetic algorithm. Omega-International Journal of Management Science."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.515,
+                0.087,
+                0.926,
+                0.919
+            ],
+            "angle": 0,
+            "content": null
+        }
+    ],
+    [
+        {
+            "type": "page_number",
+            "bbox": [
+                0.074,
+                0.059,
+                0.098,
+                0.069
+            ],
+            "angle": 0,
+            "content": "340"
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.242,
+                0.058,
+                0.765,
+                0.071
+            ],
+            "angle": 0,
+            "content": "K.-J. Wang et al. / European Journal of Operational Research 184 (2008) 327-340"
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.073,
+                0.087,
+                0.484,
+                0.113
+            ],
+            "angle": 0,
+            "content": "Wikipedia, 2006. The Free Encyclopedia. <http://en.wikipedia.org/wiki/Genetic_algorithm>."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.073,
+                0.114,
+                0.484,
+                0.155
+            ],
+            "angle": 0,
+            "content": "Xia, Y., Liu, B., Wang, S., Lai, K.K., 2000. A model for portfolio selection with order of expected returns. Computers & Operations Research 27, 409-422."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.073,
+                0.087,
+                0.484,
+                0.155
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.523,
+                0.087,
+                0.934,
+                0.14
+            ],
+            "angle": 0,
+            "content": "Xia, Y., Wang, S., Deng, X., 2001. Theory and methodology: a compromise solution to mutual funds portfolio selection with transaction Costs. European Journal of Operation Research 134, 564-581."
+        }
+    ]
+]
