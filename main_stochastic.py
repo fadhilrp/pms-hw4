@@ -69,34 +69,56 @@ class Variables:
             ]
             for p in range(problem.num_periods+1)
         ]
-        #product_capacity_loading_qtys[p][t]
+        #product_capacity_loading_qtys[scenario][p][t]
         self.product_capacity_loading_qtys = [
-            [solver.NumVar(-solver.infinity(), solver.infinity(), f"S_({p},{t})") for t in range(problem.num_products+1)]
-            for p in range(problem.num_periods+1)
+            [
+                [solver.NumVar(-solver.infinity(), solver.infinity(), f"S^{scenario}_({p},{t})") for t in range(problem.num_products+1)]
+                for p in range(problem.num_periods+1)
+            ]
+            for scenario in range(problem.num_scenarios)
         ]
         self.Spos = [
-            [solver.NumVar(0, solver.infinity(), f"Spos_({p},{t})") for t in range(problem.num_products+1)]
-            for p in range(problem.num_periods+1)
+            [
+                [solver.NumVar(0, solver.infinity(), f"Spos^{scenario}_({p},{t})") for t in range(problem.num_products+1)]
+                for p in range(problem.num_periods+1)
+            ]
+            for scenario in range(problem.num_scenarios)
         ]
         self.Sneg = [
-            [solver.NumVar(0, solver.infinity(), f"Sneg_({p},{t})") for t in range(problem.num_products+1)]
-            for p in range(problem.num_periods+1)
+            [
+                [solver.NumVar(0, solver.infinity(), f"Sneg^{scenario}_({p},{t})") for t in range(problem.num_products+1)]
+                for p in range(problem.num_periods+1)
+            ]
+            for scenario in range(problem.num_scenarios)
         ]
-        #product_capacity_loading_costs[p][t]
+        #product_capacity_loading_costs[scenario][p][t]
         self.product_capacity_loading_costs = [
-            [solver.NumVar(-solver.infinity(), solver.infinity(), f"V_({p},{t})") for t in range(problem.num_products+1)]
-            for p in range(problem.num_periods+1)
+            [
+                [solver.NumVar(-solver.infinity(), solver.infinity(), f"V^{scenario}_({p},{t})") for t in range(problem.num_products+1)]
+                for p in range(problem.num_periods+1)
+            ]
+            for scenario in range(problem.num_scenarios)
         ]
         self.y = [
-            [solver.BoolVar(f"y_({p},{t})") for t in range(problem.num_products+1)]
-            for p in range(problem.num_periods+1)
+            [
+                [solver.BoolVar(f"y^{scenario}_({p},{t})") for t in range(problem.num_products+1)]
+                for p in range(problem.num_periods+1)
+            ]
+            for scenario in range(problem.num_scenarios)
         ]
-        self.BigM = 999999999999
+        # Profit per scenario (theta^scenario)
+        self.profits = [solver.NumVar(-solver.infinity(), solver.infinity(), f"theta^{scenario}") for scenario in range(problem.num_scenarios)]
+
+        # Mean absolute deviation (MAD) auxiliary variables
+        self.mean_profit = solver.NumVar(-solver.infinity(), solver.infinity(), "mean_profit")
+        self.profit_deviations = [solver.NumVar(0, solver.infinity(), f"deviation^{scenario}") for scenario in range(problem.num_scenarios)]
+
+        self.BigM = 1e8  # Reduced for numerical stability
         
         
 
 
-def solve(problem: RPP):
+def solve(problem: RPP, lambda_param: float = 0.5):
     solver: pywraplp.Solver = pywraplp.Solver.CreateSolver("SCIP")
     vars = Variables(solver, problem)
     # Constraint (2)
@@ -149,76 +171,114 @@ def solve(problem: RPP):
                     )
                 solver.Add(num_available_handlers >= sum_produced_by_categories)
     
-    # Constraint (5prelude)
-    for p in range(problem.num_periods+1):
+    # Constraint (5prelude) - scenario-indexed
+    for scenario in range(problem.num_scenarios):
+        for p in range(problem.num_periods+1):
+            for t in problem.products:
+                solver.Add(vars.Spos[scenario][p][t] <= vars.BigM * vars.y[scenario][p][t])
+                solver.Add(vars.Sneg[scenario][p][t] <= vars.BigM * (1 - vars.y[scenario][p][t]))
+                solver.Add(vars.product_capacity_loading_qtys[scenario][p][t] == vars.Spos[scenario][p][t] - vars.Sneg[scenario][p][t])
         for t in problem.products:
-            solver.Add(vars.Spos[p][t] <= vars.BigM * vars.y[p][t])
-            solver.Add(vars.Sneg[p][t] <= vars.BigM * (1 - vars.y[p][t]))
-            solver.Add(vars.product_capacity_loading_qtys[p][t] == vars.Spos[p][t] - vars.Sneg[p][t])
-    for t in problem.products:
-        solver.Add(vars.product_capacity_loading_qtys[0][t] == problem.initial_capacity_loading_qty[(t,)])
-    # Constraint (5)
-    for p in problem.periods:
-        for t in problem.products:
-            num_produced_main = sum(
-                (problem.tester_ablities[m, t] * vars.num_produced_main[p][m][t])
-                for m in problem.testers
-            )
-            solver.Add(vars.product_capacity_loading_qtys[p][t] == vars.product_capacity_loading_qtys[p-1][t] + num_produced_main - problem.demands_mts[p,t]) 
+            solver.Add(vars.product_capacity_loading_qtys[scenario][0][t] == problem.initial_capacity_loading_qty[(t,)])
+
+    # Constraint (5) - scenario-indexed with stochastic demands
+    scenarios = range(1, problem.num_scenarios + 1)  # scenarios are 1-indexed in problem.demands_mts
+    for s_idx, s in enumerate(scenarios):
+        for p in problem.periods:
+            for t in problem.products:
+                num_produced_main = sum(
+                    (problem.tester_ablities[m, t] * vars.num_produced_main[p][m][t])
+                    for m in problem.testers
+                )
+                solver.Add(vars.product_capacity_loading_qtys[s_idx][p][t] == vars.product_capacity_loading_qtys[s_idx][p-1][t] + num_produced_main - problem.demands_mts[s,p,t]) 
     
-    # Constraint (6)
+    # Constraint (6) - using expected MTO demand across scenarios
     for p in problem.periods:
         for t in problem.products:
             num_produced_main = sum(
                 (problem.tester_ablities[m, t] * vars.num_produced_main[p][m][t])
                 for m in problem.testers
             )
-            solver.Add(num_produced_main <= problem.demands_mto[p,t])
+            # Use expected demand across scenarios for first-stage production decision
+            expected_mto_demand = sum(problem.demands_mto[s,p,t] for s in scenarios) / problem.num_scenarios
+            solver.Add(num_produced_main <= expected_mto_demand)
 
-    # Constraint (7)
-    for p in problem.periods:
-        for t in problem.products:
-            excess_cost = problem.excess_production_cost[p,t]*vars.Spos[p][t]
-            shortage_cost = problem.shortage_cost[p,t]*vars.Sneg[p][t]
-            solver.Add(vars.product_capacity_loading_costs[p][t] == excess_cost + shortage_cost)
+    # Constraint (7) - scenario-indexed
+    for scenario in range(problem.num_scenarios):
+        for p in problem.periods:
+            for t in problem.products:
+                excess_cost = problem.excess_production_cost[p,t]*vars.Spos[scenario][p][t]
+                shortage_cost = problem.shortage_cost[p,t]*vars.Sneg[scenario][p][t]
+                solver.Add(vars.product_capacity_loading_costs[scenario][p][t] == excess_cost + shortage_cost)
 
-    # Constraint (8prelude)
-    solver.Add(vars.capitals[0] == problem.capital)
-    # Constraint (8)
-    for p in problem.periods:
-        tester_borrow_total_cost = sum(problem.tester_borrow_prices[p,m,z]*vars.num_acquired_testers[p][m][z] for m in problem.testers for z in problem.tester_channels)
-        handler_borrow_total_cost = sum(problem.handler_borrow_prices[p,h,a,z]*vars.num_acquired_handlers[p][h][a][z] for z in problem.handler_channels for a in problem.handlers for h in problem.handler_categories)
-        inventory_cost = sum(vars.product_capacity_loading_costs[p][t] for t in problem.products)
-        total_profit_mts = sum(problem.product_profits[p,t]*problem.demands_mts[p,t] for t in problem.products)
-        total_profit_mto = sum(problem.product_profits[p,t]*vars.num_produced_main[p][m][t] for t in problem.products for m in problem.testers)
-        last_capital = vars.capitals[p-1]*(1+problem.interest_rates[p])
-        solver.Add(vars.capitals[p] == last_capital - tester_borrow_total_cost - handler_borrow_total_cost - inventory_cost + total_profit_mts + total_profit_mto)
+    # Constraint (8prelude) - set initial capital for all scenarios
+    for scenario in range(problem.num_scenarios):
+        solver.Add(vars.capitals[scenario][0] == problem.capital)
 
-    # Objective
+    # Constraint (8) - scenario-indexed capital balance
+    for s_idx, s in enumerate(scenarios):
+        for p in problem.periods:
+            tester_borrow_total_cost = sum(problem.tester_borrow_prices[p,m,z]*vars.num_acquired_testers[p][m][z] for m in problem.testers for z in problem.tester_channels)
+            handler_borrow_total_cost = sum(problem.handler_borrow_prices[p,h,a,z]*vars.num_acquired_handlers[p][h][a][z] for z in problem.handler_channels for a in problem.handlers for h in problem.handler_categories)
+            inventory_cost = sum(vars.product_capacity_loading_costs[s_idx][p][t] for t in problem.products)
+            total_profit_mts = sum(problem.product_profits[p,t]*problem.demands_mts[s,p,t] for t in problem.products)
+            total_profit_mto = sum(problem.product_profits[p,t]*vars.num_produced_main[p][m][t] for t in problem.products for m in problem.testers)
+            last_capital = vars.capitals[s_idx][p-1]*(1+problem.interest_rates[p])
+            solver.Add(vars.capitals[s_idx][p] == last_capital - tester_borrow_total_cost - handler_borrow_total_cost - inventory_cost + total_profit_mts + total_profit_mto)
+
+    # Profit calculation per scenario (Equation 9 from paper)
     last_period = max(problem.periods)
     compound_interest = 1
     for p in problem.periods:
         compound_interest *= (1 + problem.interest_rates[p])
-    last_capital = vars.capitals[last_period]/compound_interest
+
+    # First-stage costs (same across all scenarios)
     tester_purchase_cost = sum((problem.tester_initial_prices[(m,)]- problem.tester_salvage_prices[(m,)])*(vars.num_testers[m]-problem.initial_num_testers[(m,)]) for m in problem.testers)
     handler_purchase_cost = sum((problem.handler_initial_prices[h,a]-problem.handler_salvage_prices[h,a])*(vars.num_handlers[h][a]-problem.initial_num_handlers[h,a]) for h in problem.handler_categories for a in problem.handlers)
-    obj = last_capital - tester_purchase_cost - handler_purchase_cost
-    solver.Maximize(obj)
-    solver.SetNumThreads(16)
+
+    # Calculate profit for each scenario
+    for s_idx in range(problem.num_scenarios):
+        last_capital_scenario = vars.capitals[s_idx][last_period]/compound_interest
+        solver.Add(vars.profits[s_idx] == last_capital_scenario - tester_purchase_cost - handler_purchase_cost)
+
+    # Multi-scenario objective with MAD risk measure (Equation 1 from paper)
+    # Calculate mean profit
+    solver.Add(vars.mean_profit == sum(vars.profits) / problem.num_scenarios)
+
+    # Calculate absolute deviations using auxiliary variables
+    # For each scenario: |profit[s] - mean_profit| = deviation[s]
+    for s_idx in range(problem.num_scenarios):
+        # deviation[s] >= profit[s] - mean_profit
+        solver.Add(vars.profit_deviations[s_idx] >= vars.profits[s_idx] - vars.mean_profit)
+        # deviation[s] >= -(profit[s] - mean_profit) = mean_profit - profit[s]
+        solver.Add(vars.profit_deviations[s_idx] >= vars.mean_profit - vars.profits[s_idx])
+
+    # Calculate MAD (mean absolute deviation)
+    mad = sum(vars.profit_deviations) / problem.num_scenarios
+
+    # Expected profit (same as mean_profit, but calculated explicitly for clarity)
+    expected_profit = sum(vars.profits) / problem.num_scenarios
+
+    # Objective: (1-λ) * expected_profit - λ * MAD
+    # λ = 0: pure profit maximization
+    # λ = 1: pure risk minimization
+    objective = (1 - lambda_param) * expected_profit - lambda_param * mad
+
+    solver.Maximize(objective)
+    solver.SetNumThreads(1)  # Single-threaded to avoid numerical issues
     status = solver.Solve()
+
     if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
         print("Objective =", solver.Objective().Value())
-    # print(status)
-    # for var in solver.variables():
-    #     val = var.solution_value()
-    #     # if abs(val) > 1e-6:   # print only non-zero variables (optional)
-    #     print(f"{var.name():<30s} = {val:,.6f}")
+    print(status)
+    for var in solver.variables():
+        val = var.solution_value()
+        # if abs(val) > 1e-6:   # print only non-zero variables (optional)
+        print(f"{var.name():<30s} = {val:,.6f}")
 
 def run():
-    problem = RPP(num_scenarios=10, #tambahin jadi berapa gitu, 10?
-                 distribution="uniform", #antara uniform atau normal 
-                 variance=0.1) #dari 0.1 sampai 1? 
-    # solve(problem)
+    problem = RPP()
+    solve(problem)
 
 if __name__ == "__main__":
     run()
