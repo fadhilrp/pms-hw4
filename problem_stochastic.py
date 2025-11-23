@@ -80,7 +80,7 @@ def generate_scenarios(mean: float,
 
 class RPP:
     def __init__(self,
-                 num_scenarios: int=2,
+                 num_scenarios: int=1,
                  distribution: str="uniform",
                  variance: float=0.1):
         data_dir = pathlib.Path("clean-data")

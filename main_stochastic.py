@@ -106,8 +106,8 @@ class Variables:
             ]
             for scenario in range(problem.num_scenarios)
         ]
-        # Profit per scenario (theta^scenario)
-        self.profits = [solver.NumVar(-solver.infinity(), solver.infinity(), f"theta^{scenario}") for scenario in range(problem.num_scenarios)]
+        # Profit per scenario (π^ξ in paper's notation, scenario profit)
+        self.profits = [solver.NumVar(-solver.infinity(), solver.infinity(), f"profit^{scenario}") for scenario in range(problem.num_scenarios)]
 
         # Mean absolute deviation (MAD) auxiliary variables
         self.mean_profit = solver.NumVar(-solver.infinity(), solver.infinity(), "mean_profit")
@@ -118,7 +118,15 @@ class Variables:
         
 
 
-def solve(problem: RPP, lambda_param: float = 0.5):
+def solve(problem: RPP, lambda_param: float = 0.5, time_limit_minutes: float = 5.0):
+    """
+    Solve the stochastic resource portfolio planning problem.
+    
+    Args:
+        problem: RPP problem instance
+        lambda_param: Risk aversion parameter (0-1). 0=pure profit maximization, 1=pure risk minimization
+        time_limit_minutes: Maximum solving time in minutes (default: 5.0)
+    """
     solver: pywraplp.Solver = pywraplp.Solver.CreateSolver("SCIP")
     vars = Variables(solver, problem)
     # Constraint (2)
@@ -266,19 +274,80 @@ def solve(problem: RPP, lambda_param: float = 0.5):
 
     solver.Maximize(objective)
     solver.SetNumThreads(1)  # Single-threaded to avoid numerical issues
+    
+    # Set time limit (convert minutes to milliseconds)
+    time_limit_ms = int(time_limit_minutes * 60 * 1000)
+    solver.SetTimeLimit(time_limit_ms)
+    
+    # Enable verbose logging from OR-Tools solver
+    solver.EnableOutput()
+    
+    # Set SCIP-specific parameters
+    # display/verblevel: verbosity level (0=off, 1=errors, 2=warnings, 3=info, 4=verbose, 5=full)
+    # display/freq: frequency for displaying node information (higher = less frequent)
+    solver.SetSolverSpecificParametersAsString("display/verblevel = 3\ndisplay/freq = 10000")
+    
+    print("="*80)
+    print(f"Starting optimization with {len(solver.variables())} variables and {len(solver.constraints())} constraints")
+    print(f"Problem: {problem.num_scenarios} scenarios, {problem.num_periods} periods, {problem.num_products} products")
+    print(f"Time limit: {time_limit_ms / 1000:.0f} seconds ({time_limit_ms / 60000:.0f} minutes)")
+    print("="*80)
+    
     status = solver.Solve()
+    
+    print("="*80)
+    print("SOLVER FINISHED!")
+    print("="*80)
 
+    if status == pywraplp.Solver.OPTIMAL:
+        print("✓ Status: OPTIMAL solution found")
+        print(f"✓ Objective Value: {solver.Objective().Value():,.2f}")
+    elif status == pywraplp.Solver.FEASIBLE:
+        print("⚠ Status: FEASIBLE solution found (not proven optimal)")
+        print(f"⚠ This may be due to timeout or early termination")
+        print(f"✓ Objective Value: {solver.Objective().Value():,.2f}")
+    elif status == pywraplp.Solver.INFEASIBLE:
+        print("✗ Status: Problem is INFEASIBLE - no solution exists")
+    elif status == pywraplp.Solver.UNBOUNDED:
+        print("✗ Status: Problem is UNBOUNDED")
+    else:
+        print(f"? Status: {status}")
+    
+    wall_time_sec = solver.WallTime() / 1000.0
+    print(f"Wall time: {wall_time_sec:.2f} seconds ({wall_time_sec/60:.2f} minutes)")
+    
+    if wall_time_sec >= (time_limit_ms / 1000.0 * 0.95):  # Within 95% of time limit
+        print("⏱ Note: Solver reached or approached the time limit")
+    print("="*80)
+    
     if status == pywraplp.Solver.OPTIMAL or status == pywraplp.Solver.FEASIBLE:
         print("Objective =", solver.Objective().Value())
-    print(status)
-    for var in solver.variables():
-        val = var.solution_value()
-        # if abs(val) > 1e-6:   # print only non-zero variables (optional)
-        print(f"{var.name():<30s} = {val:,.6f}")
+        print(f"Status code: {status}")
+
+        # Safely extract solution - only print non-zero values to avoid segfault
+        print("\nKey decision variables (non-zero values):")
+        try:
+            for var in solver.variables():
+                val = var.solution_value()
+                if abs(val) > 1e-6:  # Only print significant values
+                    print(f"{var.name():<30s} = {val:,.6f}")
+        except Exception as e:
+            print(f"Warning: Could not extract all solution values: {e}")
+    else:
+        print(f"Status code: {status}")
 
 def run():
-    problem = RPP()
-    solve(problem)
+    # Create problem with 1 scenario to test if basic model works
+    # Starting simple - if this works, we'll try 2, then more
+    print("Creating problem instance...")
+    problem = RPP(num_scenarios=1, distribution="uniform", variance=0.1)
+    print(f"Problem created: {problem.num_scenarios} scenarios, {problem.num_periods} periods")
+
+    # Solve with balanced risk-return tradeoff (λ=0.5)
+    # Note: With 1 scenario, MAD = 0, so this is essentially deterministic
+    print("Starting solver...")
+    solve(problem, lambda_param=0.5, time_limit_minutes=2.0)
+
 
 if __name__ == "__main__":
     run()
